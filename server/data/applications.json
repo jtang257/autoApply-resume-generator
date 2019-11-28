@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "applicationId": "test",
+        "profileId" : "test",
+        "postingId" : "test",
+        "submissionDate" : ""
+    }
+]
