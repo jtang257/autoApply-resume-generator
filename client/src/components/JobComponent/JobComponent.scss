@@ -1,0 +1,94 @@
+@import '../../styles/global.scss';
+
+.posting {
+    display: flex;
+    width: 50%;
+    height: 300px;
+    cursor: pointer;
+
+    &__cover {
+        display: flex;
+        align-items: center;
+        width: 50vw;
+        height: 100%;
+        position: relative;
+    }
+
+    &__cover-background {
+        position: absolute;
+        z-index: -1;
+        opacity: 0.4;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__cover-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 44px;
+        color: $secondary;
+        font-weight: bold;
+        width: 100%;
+        height: 125px;
+        background-color: rgba(0,0,0,0.2);
+    }
+
+    &__content-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    &__rating-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30%;
+        height: 100%;
+    }
+
+    &__rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        border: solid 3px $primary;
+        color: $primary;
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+    &__title-details-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        height: 100%;
+    }
+
+    &__title {
+        font-size: 34px;
+        font-weight: bold;
+    }
+
+    &__details-container {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    &__company {
+        font-weight: bold;
+        font-size: 24px;
+        margin: 12px 0 0 0;
+    }
+
+    &__location {
+        font-style: italic;
+    }
+
+
+}
