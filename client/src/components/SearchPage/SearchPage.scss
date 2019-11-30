@@ -1,7 +1,7 @@
 @import '../../styles/global.scss';
 
 .search {
-    width: 100vw;
+    width: 100%;
     height: auto;
 
     &__hero {
@@ -9,7 +9,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 700px;
+        height: 800px;
         background-image: url('../../assets/images/search-page-background.jpg');
         background-size: cover;
     }
@@ -29,6 +29,27 @@
         font-size: 32px;
         color: $primary;
         padding-left: 32px;
+        animation: 2s fadeIn;
+        animation-fill-mode: forwards;
+        visibility: hidden;
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                width: 0px;
+                height: 0px;
+            }
+            60% {
+                opacity: 1;
+                width: 700px;
+                height: 0.1px;
+            }
+            100% {
+                visibility: visible;
+                height: 100px;
+                
+            }
+        }
     }
 
     &__submit-button {
@@ -43,6 +64,10 @@
         border: none;
         background-color: rgba(8, 129, 24, 0.35);
         cursor: pointer;
+    }
+
+    &__icon {
+        margin: 0 10px 0 0;
     }
 
     &__section-content {

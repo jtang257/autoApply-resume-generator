@@ -1,10 +1,31 @@
 @import '../../styles/global.scss';
 
+// .posting is the container for the entire component
+// __cover = when component's onMouseEnter = false
+// everything else = when component's onMouseEnter = true
+
 .posting {
     display: flex;
     width: 50%;
-    height: 300px;
+    height: 500px;
+    // flex: 0 1 50%;
     cursor: pointer;
+    animation: 2s fadeInPostings;
+
+    @keyframes fadeInPostings {
+        0% {
+            height: 0px;
+            visibility: hidden;
+        }
+
+        100% {
+            height: 500px;
+            visibility: visible;
+
+        }
+    }
+
+
 
     &__cover {
         display: flex;
@@ -31,20 +52,24 @@
         font-weight: bold;
         width: 100%;
         height: 125px;
-        background-color: rgba(0,0,0,0.2);
+        background-color: rgba(0,0,0,0.6);
+
     }
 
     &__content-container {
         display: flex;
         flex-direction: row;
+        position: relative;
         width: 100%;
+        height: 100%;
     }
 
     &__rating-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 30%;
+        width: 20%;
         height: 100%;
     }
 
@@ -52,42 +77,99 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100px;
-        height: 100px;
-        border-radius: 100px;
-        border: solid 3px $primary;
-        color: $primary;
+        position: relative;
+        left: 40px;
+        width: 150px;
+        height: 150px;
+        border-radius: 150px;
+        border: solid 3px $secondary;
+        background-color: rgba(0,0,0,0.8);
+        color: $secondary;
         font-weight: bold;
-        font-size: 32px;
+        font-size: 48px;
     }
 
     &__title-details-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 70%;
+        width: 80%;
         height: 100%;
+        padding: 0 0 0 75px;
+        background-color: rgba(0,0,0,0.6);
+        box-shadow: -5px 0 5px rgba(0,0,0,0.8);
     }
 
     &__title {
-        font-size: 34px;
+        font-size: 50px;
         font-weight: bold;
+        color: $secondary;
     }
 
     &__details-container {
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: row;
     }
 
     &__company {
-        font-weight: bold;
         font-size: 24px;
+        margin: 12px 10px 0 0;
+        color: $secondary;
+    }
+
+    &__category {
+        font-size: 24px;
+        margin: 12px 0 0 0;
+        color: $secondary;
         margin: 12px 0 0 0;
     }
 
     &__location {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 45px;
+        border: solid 3px $secondary;
+        background-color: rgba(0,0,0,0.8);
+        color: $secondary;
+        width: 130px;
+        height: 130px;
+        margin: 20px 0 0 0;
+        border-radius: 100px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__post-date {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 40px;
         font-style: italic;
+        border: solid 3px $secondary;
+        background-color: rgba(0,0,0,0.8);
+        color: $secondary;
+        width: 140px;
+        height: 140px;
+        margin: 20px 0 0 0;
+        border-radius: 100px;
+        font-size: 48px;
+
+    }
+
+    &__days-ago-text {
+        font-size: 12px;
+    }
+
+    &__background {
+        position: absolute;
+        z-index: -1;
+        opacity: 0.8;
+        width: 100%;
+        height: 100%;
     }
 
 

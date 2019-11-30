@@ -14,7 +14,7 @@ class Homepage extends React.Component {
 
     hoverRotate = () => {
         this.setState({
-            hoverToggle : !this.state.hoverToggle
+            hoverToggle : true
         })
     }
 
