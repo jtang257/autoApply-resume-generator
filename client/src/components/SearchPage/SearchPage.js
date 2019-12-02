@@ -10,8 +10,7 @@ class SearchPage extends React.Component {
 
     state = {
         postingData : null,
-        searchToggle : false
-
+        searchToggle : false,
     }
 
 
@@ -85,7 +84,6 @@ class SearchPage extends React.Component {
                 </form>
             )} else {
                 return (
-                    
                     <form className="search__form" onSubmit={(e) => {this.postingsQuery(e)}}>
                         <button className="search__submit-button" type="submit" id="search-btn" onMouseEnter={this.searchBarSwitch}>
                             <img className="search__icon" src={SearchIcon} />

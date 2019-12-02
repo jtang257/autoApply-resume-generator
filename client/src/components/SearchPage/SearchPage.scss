@@ -9,7 +9,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 800px;
+        height: 100vh;
         background-image: url('../../assets/images/search-page-background.jpg');
         background-size: cover;
     }
@@ -21,7 +21,7 @@
     }
 
     &__search-input {
-        width: 700px;
+        width: 500px;
         height: 100px;
         background-color: rgba(235, 237, 238, 0.3);
         border: solid 3px $primary;
@@ -41,7 +41,7 @@
             }
             60% {
                 opacity: 1;
-                width: 700px;
+                width: 500px;
                 height: 0.1px;
             }
             100% {

@@ -1,22 +1,31 @@
 import React from 'react';
 import './JobComponent.scss';
-import BackgroundImage from '../../assets/images/posting-image.jpg';
+import ReactModal from 'react-modal';
+import '../JobModal/JobModal.scss';
+
 
 class JobComponent extends React.Component {
 
     state = {
-        hover : false
+        hover : false,
+        modal : false
     }
 
     onHoverShow = () => {
+        let stateCopy = this.state;
+        stateCopy.hover = true;
+
         this.setState({
-            hover : true
+            stateCopy
         })
     }
 
     onHoverFinish = () => {
+        let stateCopy = this.state;
+        stateCopy.hover = false;
+
         this.setState({
-            hover : false
+            stateCopy
         })
     }
 
@@ -46,18 +55,40 @@ class JobComponent extends React.Component {
                         </div>
                         <img className="posting__background" src={this.props.image} />
                     </div>
+
                 </>
             )
         }
     }
 
+    modalToggle = () => {
+        let stateCopy = this.state;
+        stateCopy.modal = !this.state.modalToggle;
 
+        this.setState({
+            stateCopy
+        })
+    }
 
     render() {
         return (
-            <div className="posting" onMouseEnter={this.onHoverShow} onMouseLeave={this.onHoverFinish}>
-                {this.contentRender()}
-            </div>
+            <>
+                <div className="posting" onMouseEnter={this.onHoverShow} onMouseLeave={this.onHoverFinish} onClick={this.modalToggle}>
+                    {this.contentRender()}
+                </div>
+                <ReactModal
+                    isOpen={this.state.modal}
+                    onRequestClose={this.state.modal}
+                    ariaHideApp={false}
+                    className="modal__container"
+                    overlayClassName="modal__overlay"
+                    >
+                    <form className="modal__form-container" onSubmit={null}>
+                        <div>TEST</div>
+                    </form>
+                </ReactModal>
+
+            </>
         )
     }
 }

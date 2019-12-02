@@ -9,6 +9,7 @@
     width: 50%;
     height: 500px;
     // flex: 0 1 50%;
+    position: relative;
     cursor: pointer;
     animation: 2s fadeInPostings;
 
@@ -137,8 +138,9 @@
         height: 130px;
         margin: 20px 0 0 0;
         border-radius: 100px;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: bold;
+        text-align: center;
     }
 
     &__post-date {
@@ -171,6 +173,4 @@
         width: 100%;
         height: 100%;
     }
-
-
 }

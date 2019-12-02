@@ -1,0 +1,15 @@
+@import '../../styles/global.scss';
+
+.modal__container {
+    position: absolute;
+    background-color: white;
+    top: 800px;
+    left: 200px;
+    width: 80vw;
+    height: 100vh;
+    border-radius: 10px;
+}
+
+.modal__overlay {
+    background-color: rgba(0,0,0,0.8);
+}

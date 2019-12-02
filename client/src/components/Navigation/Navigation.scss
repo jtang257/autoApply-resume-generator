@@ -1,0 +1,69 @@
+@import '../../styles/global.scss';
+
+.navigation__icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+.nav-logo {
+    margin: 0 0 50px 0;
+}
+
+// Note: classes titled .bm are helper classes provided
+// by React Burger Menu
+
+.bm-burger-button {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
+
+.bm-menu-wrap {
+    opacity: 0.8;
+
+}
+
+.bm-menu {
+    width: 100%;
+    padding: 50px 0 0 0;
+    font-size: 32px;
+    line-height: 80px;
+    background: rgba(8,129,24,0.2);
+}
+
+.bm-morph-shape {
+    background: rgba(8,129,24,0.2);
+}
+
+.bm-cross {
+    background: white;
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.bm-item-list {
+    width: 100%;
+
+}
+
+.bm-item {
+    width: 100%;
+    padding: 0 0 0 20px;
+    font-weight: bold;
+    color: $secondary;
+    text-decoration: none;
+    font-size: 24px;
+    border-top: solid 1px $tertiary;
+
+    &:hover {
+        background: rgba(235,237,238, 0.5);
+    }
+
+
+
+
+}
