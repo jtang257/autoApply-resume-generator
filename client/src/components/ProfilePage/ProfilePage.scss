@@ -1,0 +1,102 @@
+@import '../../styles/global.scss';
+
+.profilePage {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/images/profile-background3.jpg');
+    background-clip: border-box;
+    background-size: cover;
+
+    &__navigation {
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: flex-start;
+        position: absolute;
+        top: 30%;
+        left: 10%;
+    }
+
+    &__navigation-pencil {
+        height: 300px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+
+        &:hover {
+            cursor: pointer;
+            animation: translate 4s linear infinite;
+            animation-fill-mode: forwards;
+
+            @keyframes translate {
+                0% {
+                    bottom: 0px;
+                    left: 0px;
+                    transform: rotate(35deg);
+                }
+                10% {
+                    transform: rotate(40deg);
+                }
+                20% {
+                    bottom: 100px;
+                    left: -60px;
+                    transform: rotate(60deg);
+                }
+                50% {
+                    bottom: 150px;
+                    left: 60px;
+                    transform: rotate(30deg);
+
+                }
+                60% {
+                    // transform: rotate (10deg);
+                }
+                70% {
+                    bottom: 100px;
+                    left: 20px;
+                    // transform: rotate (30deg);
+                }
+                100% {
+                    bottom: 0px;
+                    left: 0px;
+                    transform: rotate (0deg);
+                }
+            }
+        }
+    }
+
+    &__label {
+        color: $nav-links;
+        // font-weight: bold;
+        font-size: 24px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        cursor: pointer;
+
+        &:hover {
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: $primary;
+        }
+    }
+
+    &__line {
+        position: absolute;
+        width: 0px;
+        border-left: 1px solid rgba(112,112,112,0.2);
+
+        &--1 {
+            height: 130px;
+            top: 40px;
+            left: 30px;
+        }
+
+        &--2 {
+            height: 70px;
+            top: 260px;
+        }
+    }
+
+
+
+}

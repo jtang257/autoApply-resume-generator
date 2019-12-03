@@ -1,0 +1,143 @@
+@import '../../styles/global.scss';
+
+.profile {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    &__background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        z-index: -1;
+        border-radius: 20px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin: 12px 18px 12px 18px;
+        border-radius: 20px;
+    }
+
+    &__form-title-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 24px 0;
+    }
+
+    &__form-header {
+        margin: 0 0 10px 0;
+    }
+
+    &__form-description {
+        font-size: 14px;
+    }
+
+    // MAIN SECTION CONTAINER 
+
+    &__form-main-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    // GENERAL
+
+    &__form-labels {
+        font-size: 20px;
+        font-weight: bold;
+        color: $secondary;
+    }
+
+    &__form-small-inputs {
+        width: 450px;
+        height: 36px;
+        margin: 8px 0 12px 0;
+        background-color: transparent;
+        border-bottom: dotted 3px $secondary;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+
+        &--address {
+            height: 72px;
+        }
+    }
+
+    &__form-section-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -30px;
+        top: -40px;
+        width: 100px;
+        height: 100px;
+        border-radius: 200px;
+        background-color: rgba(8,129,124,0.3);
+    }
+
+    &__form-selections {
+        width: 150px;
+        border-radius: 20px;
+        padding: 0 0 0 10px;
+        margin: 12px 0 0 0;
+    }
+
+    &__form-add-button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        margin: 8px 0 0 12px;
+        background: transparent;
+        color: $primary;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    // CONTACT SECTION
+
+    &__form-userDetails {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        background-color: rgba(0,0,0,0.2);
+        margin: 0 0 0 24px;
+        padding: 0 0 0 24px;
+        border-radius: 20px;
+    }
+
+    &__form-userDetails-container {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+    }
+
+
+    // EDUCATION SECTION
+
+    &__form-education {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        background-color: rgba(0,0,0,0.3);
+        margin: 0 0 0 24px;
+        padding: 0 24px 0 24px;
+        border-radius: 20px;
+    }
+
+    // EXPERIENCE SECTION
+
+    &__form-experience {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        background-color: rgba(0,0,0,0.3);
+        margin: 0 0 0 24px;
+        padding: 0 24px 0 24px;
+        border-radius: 20px;
+    }
+}
