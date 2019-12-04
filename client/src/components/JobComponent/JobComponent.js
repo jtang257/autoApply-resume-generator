@@ -3,6 +3,7 @@ import './JobComponent.scss';
 import ReactModal from 'react-modal';
 import '../JobModal/JobModal.scss';
 import modalBackground from '../../assets/images/posting-modal-background2.jpg';
+import Axios from 'axios';
 
 
 class JobComponent extends React.Component {
@@ -64,7 +65,6 @@ class JobComponent extends React.Component {
 
     modalOpen = (e) => {
         e.preventDefault();
-        console.log(this.props)
         
         let stateCopy = this.state;
         stateCopy.modal = true;
@@ -108,6 +108,33 @@ class JobComponent extends React.Component {
         }
     }
 
+    profileOptions = () => {
+        let profiles = this.props.profiles;
+        return profiles.map((arrayValue) => {
+            return ( 
+                <option value={arrayValue.profileId} id={arrayValue.profileId}>{arrayValue.userProfile.profileName}</option>
+            )
+        })  
+    }
+
+    applicationPost = (e) => {
+        e.preventDefault();
+
+        const url = "http://localhost:8080/";
+        const path = "applications/";
+        let profileId = e.target.profileSelect.value;
+        let postingId = this.props.postingId;
+        
+        Axios.post(url+path, {
+            profileId : profileId,
+            postingId : postingId,
+        }).then((res) => {
+            console.log(res);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
 
     render() {
         return (
@@ -123,7 +150,7 @@ class JobComponent extends React.Component {
                         overlayClassName="modal__overlay"
                         shouldCloseOnOverlayClick={true}
                     >
-                        <form className="modal__form-container" onSubmit={null}>
+                        <form className="modal__form-container" onSubmit={(e) => {this.applicationPost(e)}}>
                             <div className="modal__form-layout">
                                 <div className="modal__header">
                                     <div className="modal__rating">{this.props.rating}</div>
@@ -161,15 +188,15 @@ class JobComponent extends React.Component {
                             <div className="modal__buttons-container">
                                 <div className="modal__select-container">
                                     <label className="modal__label" htmlFor="profileSelect">SELECT PROFILE</label>
-                                    <select className="modal__select" name="profileSelect" id="profileSelect">
-                                        <option value="Profile ID">Profile ID</option>
-                                        <option value="Profile ID">Profile ID</option> 
+                                    <select className="modal__select" name="profileSelect" id="profileSelect">                                        
+                                        {this.profileOptions()}
                                     </select>
                                 </div>
                                 <div className="modal__guide"></div>
                                 <div className="modal__generate-container">
-                                    <button className="modal__button">GENERATE RESUME</button>
-                                    <button className="modal__button">GENERATE COVER LETTER</button>
+                                    <button type="submit" className="modal__button">SAVE POSTING</button>
+                                    <button type="button" className="modal__button">GENERATE RESUME</button>
+                                    <button type="button" className="modal__button">GENERATE COVER LETTER</button>
                                 </div>
                                 <div className="modal__guide"></div>
                                 <div className="modal__cancel-container">

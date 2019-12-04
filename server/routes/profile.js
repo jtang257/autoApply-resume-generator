@@ -26,6 +26,7 @@ router.post('/profiles', (req, res) => {
     console.log("Request to post a new profile has been received")
     if (req.body) {
         postProfile(req.body);
+        console.log(profileData);
         res.send("Your request has been received!");
     } else {
         res.status(404).send("404: Profile submission failed!");

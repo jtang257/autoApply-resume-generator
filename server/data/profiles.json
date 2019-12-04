@@ -1,50 +1,46 @@
 [
-    {
-        "profileId" : "test",
-        "userName" : "John",
-        "userAddress" : "123 Sample St",
-        "phone" : "647-111-1111",
-        "email" : "example@example.com",
-        "positionList" : [
-            {
-                "positionTitle" : "exampleJob",
-                "positionOrg" : "exampleOrg",
-                "keyResponsibilities" : [
-                    "Test responsibility1",
-                    "Test responsibility2",
-                    "Test responsibility3"
-                ]
-            },
-            {
-                "positionTitle" : "exampleJob2",
-                "positionOrg" : "exampleOrg2",
-                "keyResponsibilities" : [
-                    "Test responsibility1",
-                    "Test responsibility2",
-                    "Test responsibility3"
-                ]
-            }
-        ],
-        "Education" : {
-            "Year" : "2015",
-            "Institution" : "Sample School",
-            "Degree" : "Bachelor of Something"
+    { "userProfile":
+        {
+            "profileName" : "Retail Profile",
+            "firstName": "Jonathan",
+            "middleName": "Harris",
+            "lastName": "Tang",
+            "address": "111 Example St",
+            "email": "j.h_tang525@hotmail.com",
+            "telephone": "6477676357",
+            "eduInstitution": "Ivey Business School",
+            "eduStatus": "Obtained",
+            "eduDegree": "Bachelor of Arts, HBA",
+            "eduYear": "2015",
+            "eduInstitution2": "Western University",
+            "eduStatus2": "Obtained",
+            "eduDegree2": "Bachelor of Arts",
+            "eduYear2": "2015",
+            "expRole": "Marketing Manager",
+            "expOrg": "TELUS",
+            "expYr": "5",
+            "expResp1":
+                "Led the Retail Channel Performance Optimization program as the product owner",
+            "expResp2":
+                "Owned the Corporate Stores internal performance application",
+            "expResp3": "",
+            "expRole2": "Marketing Specialist",
+            "expOrg2": "TELUS",
+            "expYr2": "2",
+            "expRespT1":
+                "Managed the Corporate Stores Customer Feedback Management survey program",
+            "expRespT2": "",
+            "expRespT3": "",
+            "awardCert": "Entrance scholarship",
+            "awardCertType": "Award",
+            "awardCertYr": "2011",
+            "awardCert2": "",
+            "awardCertType2": "Award",
+            "awardCertYr2": "",
+            "userSkills": "Basketball, Learning, Web Development, Mens fashion",
+            "coverLetter": "This is a test cover letter." 
         },
-        "awardsCerts" : [
-            {
-                "type" : "award",
-                "description" : "won something"
-            }
-        ],
-        "skillsInterests" : [
-            {
-                "type" : "skill",
-                "description" : "I like doing this"
-            }
-        ],
-        "coverLetter" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-        "profileId" : "test2"
+        "profileId" : "20OjoGkQ"
     }
+        
 ]

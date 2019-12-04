@@ -8,19 +8,26 @@ import postingBackgrounds from '../../assets/images/posting-backgrounds/postingB
 
 class SearchPage extends React.Component {
 
+    // State houses job posting data, which is populated by function postingsQuery
+    // State houses searchToggle, which determines onHover whether function searchBarRender shows the search icon
+    // or the full search bar
+    // State houses job profiles, which is populated by function profileQuery  
     state = {
         postingData : null,
         searchToggle : false,
+        jobProfiles : null
     }
 
-
+    // this function takes the postingData stored in state and renders JobComponent for all the postings stored 
+    // in the array, and passed down as props
     postingGenerator = () => {
         let postings = this.state.postingData;
+        let profiles = this.state.jobProfiles;
         let postingsArray = []
         if (postings) {
             for (let i = 0; i < postings.length; i++) {
                 let randomImageIndex = this.imageRandomizer(postings.length);
-                postingsArray.push(<JobComponent {...postings[i]} image={postingBackgrounds[randomImageIndex]} />)  
+                postingsArray.push(<JobComponent {...postings[i]} profiles={profiles} image={postingBackgrounds[randomImageIndex]} />)  
             }
             return postingsArray;
         } else {
@@ -28,10 +35,15 @@ class SearchPage extends React.Component {
         }
     }
 
+    // this function determines which stored background image is rendered for each JobComponent
+
     imageRandomizer = (max) => {
         return Math.floor(Math.random() * Math.floor(max));
     }
 
+    // this function is an API GET request for all JobPostings. The full object is returned and then passed to
+    // a fuse.js search function (searchQuery) which parses out the postings that match the search query, before setting state
+    // with the queried job postings. Postings are then rendered by function postingGenerator
     postingsQuery = (event) => {
         event.preventDefault();
         const url = "http://localhost:8080"
@@ -39,7 +51,6 @@ class SearchPage extends React.Component {
         const searchTerm = event.target.search.value;
         Axios.get(url+path)
             .then((res) => {
-                console.log(this.searchQuery(searchTerm, res.data))
                 let stateCopy = this.state;
                 stateCopy.postingData = this.searchQuery(searchTerm, res.data)
                 this.setState({
@@ -51,6 +62,9 @@ class SearchPage extends React.Component {
             })
     }
 
+    // searchQuery uses fuse.js library to parse out the JobPostings based on the search term
+    // In fuse.js, options are passed to the fuse object as search parameters. Keys determined which keys in the
+    // object will be searched, and threshold determines how close the match needs to be to be returned
     searchQuery = (searchTerm, postings) => {
         const search = searchTerm;
         const allJobPostings = postings;
@@ -64,6 +78,28 @@ class SearchPage extends React.Component {
         return fuse.search(search);
     }
 
+    profileQuery = () => {
+        const url = "http://localhost:8080/";
+        const path = "profiles";
+
+        Axios.get(url+path)
+            .then((res) => {
+                let stateCopy = this.state;
+                stateCopy.jobProfiles = res.data;
+                this.setState({
+                    stateCopy
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    componentDidMount() {
+        this.profileQuery();
+    }
+
+    // onHover, this function setsState for search toggle to true
     searchBarSwitch = () => {
         const stateCopy = this.state;
         stateCopy.searchToggle = true;
@@ -72,6 +108,9 @@ class SearchPage extends React.Component {
             stateCopy
         })
     }
+    
+    // this function renders the search bar based on what is stored in state. If searchToggle is true, the full
+    // bar is rendered
 
     searchBarRender = () => {
         if (this.state.searchToggle) {

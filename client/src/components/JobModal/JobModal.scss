@@ -176,8 +176,8 @@
         font-size: 24px;
         cursor: pointer;
 
-        &:first-child {
-            margin-bottom: 10px;
+        &:nth-child(2n) {
+            margin: 8px 0 8px 0;
         }
 
         &--close {
