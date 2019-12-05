@@ -20,6 +20,7 @@ const postApplication = (profile, posting) => {
     }
     
     applicationData.push(newApplication);
+    return newApplication.applicationId;
 }
 
 const findApplication = (id) => {
@@ -27,6 +28,7 @@ const findApplication = (id) => {
         return arrayValue.applicationId === id;
     })
 }
+
 
 
 // /applications endpoint takes the request's profile ID and postingID and runs a postApplication() to push the
@@ -37,8 +39,8 @@ router.post('/applications', (req, res) => {
     const submittedJob = req.body.postingId;
 
     if (submitterProfile && submittedJob) {
-        postApplication(submitterProfile, submittedJob);
-        res.send("Your application has been received");
+        let applicationId = postApplication(submitterProfile, submittedJob);
+        res.send(applicationId);
     } else {
         res.status(404).send("404: Your submission failed!")
     }

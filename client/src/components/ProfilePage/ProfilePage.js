@@ -21,9 +21,9 @@ class ProfilePage extends React.Component {
         let stateCopy = this.state;
         stateCopy.newProfile = true;
 
-        this.setState({
+        this.setState(
             stateCopy
-        })
+        )
     }
 
 

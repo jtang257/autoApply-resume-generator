@@ -1,0 +1,194 @@
+@import '../../styles/global.scss';
+
+.resume__container {
+    display: flex;
+    justify-content: center;
+    background-color: darkgray;
+}
+
+.resume {
+    display: flex;
+    flex-direction: column;
+    width: 8.5in;
+    height: 11in;
+    padding: 24px 32px 14px 32px;
+    margin: 24px 0 24px 0;
+    border: solid 2px black;
+    background-color: white;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 14px 0 0 0;
+        padding: 0 0 12px 0;
+    }
+
+    &__userName {
+        font-size: 48px;
+        margin: 0;
+    }
+
+    &__contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin: 0;
+        color: grey;
+
+    }
+
+    &__contact-email {
+        margin: 0;
+    }
+
+    &__contact-phone {
+        margin: 0;
+    }
+    
+    &__contact-address {
+        margin: 0;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 14px 0 0 0;
+        border-top: solid 0.5px lightgrey;
+
+        &--subsection {
+            width: 55%;
+            &:last-child {
+                width: 45%;
+                padding: 0 0 0 70px;
+            }
+        }
+    }
+
+    &__section-title {
+        font-size: 24px;
+        margin: 12px 0 12px 0;
+        background-color: rgba(0,0,0,0.3);
+        color: $secondary;
+        padding: 0 0 0 12px;
+    }
+
+    &__section-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 0 12px 0;
+    }
+
+    &__experience-container {
+        display: flex;
+        margin: 12px 0 0 0;
+    }
+
+    &__company-resp-container {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding: 0 12px 0 0;
+    }
+
+    &__company {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__resp-list {
+        margin: 8px 0 0 0;
+    }
+
+    &__role-year-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 20%;
+    }
+
+    &__role {
+        font-weight: bold;
+    }
+
+    &__yr {
+        display: flex;
+        justify-content: flex-end;
+        width: 55%;
+        font-style: italic;
+        margin: 0;
+    }
+
+    &__education-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 12px 0 0 0;
+    }
+
+    &__school-degree-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__school {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    &__degree {
+        font-style: italic;
+    }
+
+    &__education-degree-yr-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    &__education-status {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    &__section-divider {
+        display: flex;
+        margin: 14px 0 0 0;
+    }
+
+    &__award-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__award-yr-container {
+        display: flex;
+    }
+
+    &__award {
+        width: 100%;
+        font-weight: bold;
+        margin: 0 0 14px 0;
+    }
+
+    &__award-type {
+        font-weight: normal;
+    }
+
+    &__skills-container {
+
+    }
+
+    &__skills-list {
+        margin: 0;
+    }
+
+    &__skills-item {
+        margin: 0 0 14px;
+        font-style: italic;
+    }
+
+
+}

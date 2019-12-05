@@ -56,9 +56,9 @@ class Profile extends React.Component {
             stateCopy.responsibilityInputCount2.push(currentCount2+1);
         }
 
-        this.setState ({
+        this.setState (
             stateCopy
-        })
+        )
     }
 
     // this function is an Axios POST request, and is responsible for submitting the user's profile to the server

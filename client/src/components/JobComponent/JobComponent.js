@@ -4,31 +4,33 @@ import ReactModal from 'react-modal';
 import '../JobModal/JobModal.scss';
 import modalBackground from '../../assets/images/posting-modal-background2.jpg';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 class JobComponent extends React.Component {
 
     state = {
         hover : false,
-        modal : false
+        modal : false,
+        applicationId : "",
     }
 
     onHoverShow = () => {
         let stateCopy = this.state;
         stateCopy.hover = true;
 
-        this.setState({
+        this.setState(
             stateCopy
-        })
+        )
     }
 
     onHoverFinish = () => {
         let stateCopy = this.state;
         stateCopy.hover = false;
 
-        this.setState({
+        this.setState(
             stateCopy
-        })
+        )
     }
 
     contentRender = () => {
@@ -69,9 +71,9 @@ class JobComponent extends React.Component {
         let stateCopy = this.state;
         stateCopy.modal = true;
 
-        this.setState({
+        this.setState(
             stateCopy
-        })
+        )
     }
 
     modalClose = (e) => {
@@ -80,9 +82,9 @@ class JobComponent extends React.Component {
         let stateCopy = this.state;
         stateCopy.modal = false;
 
-        this.setState({
+        this.setState(
             stateCopy
-        })
+        )
     }
 
     urgentHiringConverter = () => {
@@ -117,6 +119,15 @@ class JobComponent extends React.Component {
         })  
     }
 
+    setApplicationId = (id) => {
+        let stateCopy = this.state;
+        stateCopy.applicationId = id;
+
+        this.setState(
+            stateCopy
+        )
+    }
+
     applicationPost = (e) => {
         e.preventDefault();
 
@@ -130,6 +141,7 @@ class JobComponent extends React.Component {
             postingId : postingId,
         }).then((res) => {
             console.log(res);
+            this.setApplicationId(res.data);
         }).catch((err) => {
             console.log(err);
         })
@@ -195,8 +207,8 @@ class JobComponent extends React.Component {
                                 <div className="modal__guide"></div>
                                 <div className="modal__generate-container">
                                     <button type="submit" className="modal__button">SAVE POSTING</button>
-                                    <button type="button" className="modal__button">GENERATE RESUME</button>
-                                    <button type="button" className="modal__button">GENERATE COVER LETTER</button>
+                                    <Link to={`/resume/${this.state.applicationId}`}><button type="button" className="modal__button">GENERATE RESUME</button> </Link>
+                                    <Link to={`/coverLetter/${this.state.applicationId}`}><button type="button" className="modal__button">GENERATE COVER LETTER</button></Link>
                                 </div>
                                 <div className="modal__guide"></div>
                                 <div className="modal__cancel-container">
