@@ -2,8 +2,8 @@ import React from 'react';
 import './Navigation.scss';
 import { bubble as Menu } from 'react-burger-menu';
 import { Link } from 'react-router-dom';
-import navigationMenu from '../../assets/icons/menu-icon.svg';
-import logo from '../../assets/logo/logo.png';
+import navigationMenu from '../../assets/icons/menu-icon3.png';
+import logo from '../../assets/logo/logo3.png';
 
 class Navigation extends React.Component {
 
@@ -28,7 +28,7 @@ class Navigation extends React.Component {
             return (
                 <Menu isOpen={this.state.navMenuToggle} onStateChange={(state) => this.handleStateChange(state)}>
                     <img src={logo} className="nav-logo" />
-                    <Link to="/" id="home" className="menu-item" onClick={this.navBarTrigger}>HOME</Link>
+                    <Link to="/" id="home" className="menu-logo" onClick={this.navBarTrigger}>HOME</Link>
                     <Link to="/search" id="search" className="menu-item" onClick={this.navBarTrigger}>SEARCH</Link>
                     <Link to="/profile" id="profile" className="menu-item" onClick={this.navBarTrigger}>PROFILE</Link>
                     <Link to="/applications" id="applications" className="menu-item" onClick={this.navBarTrigger}>APPLICATIONS</Link>

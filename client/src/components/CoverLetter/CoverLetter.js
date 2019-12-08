@@ -15,8 +15,9 @@ class CoverLetter extends React.Component {
         ref : React.createRef(),
         pdfOptions : {
             unit : 'in',
+            orientation: 'p',
+            format: 'letter'
 
-            
         }
     }
 
@@ -28,13 +29,12 @@ class CoverLetter extends React.Component {
 
         Axios.get(url+path+profileId)
             .then((res) => {
-                let stateCopy = this.state;
+                let stateCopy = Object.assign({}, this.state);
                 stateCopy.jobPosting = res.data;
 
                 this.setState(
                     stateCopy
                 )
-                console.log(this.state);
             })
             .catch((err) => {
                 console.log(err)
@@ -48,7 +48,7 @@ class CoverLetter extends React.Component {
 
         Axios.get(url+path+profileId)
             .then((res) => {
-                let stateCopy = this.state;
+                let stateCopy = Object.assign({}, this.state);
                 stateCopy.profile = res.data.userProfile;
            
                 this.setState(
@@ -67,7 +67,7 @@ class CoverLetter extends React.Component {
         
         Axios.get(url+path+applicationId)
             .then((res) => {
-                let stateCopy = this.state;
+                let stateCopy = Object.assign({}, this.state);
                 stateCopy.profileId = res.data.profileId;
                 stateCopy.jobPostingId = res.data.postingId;
 
@@ -98,7 +98,7 @@ class CoverLetter extends React.Component {
     render() {
         return(
             <div className="cl__container">
-                <ReactToPdf targetRef={this.state.ref} x={0} y={0} w={8.5} h={11} options={this.state.pdfOptions} filename="coverLetter.pdf">
+                <ReactToPdf targetRef={this.state.ref} x={-0.2} y={0} options={this.state.pdfOptions} filename="coverLetter.pdf">
                     {({toPdf}) => (
                         <button className="cl__pdf-generator" onClick={toPdf}>Generate PDF</button>
                     )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Homepage.scss';
-import Logo from '../../assets/logo/logo.png';
+import Logo from '../../assets/logo/logo3.png';
 import Flower1 from '../../assets/images/flower1.png';
 import Flower2 from '../../assets/images/flower4.png';
 import Flower3 from '../../assets/images/flower5.png';

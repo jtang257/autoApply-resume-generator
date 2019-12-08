@@ -2,6 +2,7 @@ import React from 'react';
 import './ProfilePage.scss';
 import pencil from '../../assets/images/pencil.png';
 import NewProfile from '../Profile/Profile.js';
+import backgroundImage from '../../assets/images/profile-background3.jpg';
 
 class ProfilePage extends React.Component {
 
@@ -11,19 +12,20 @@ class ProfilePage extends React.Component {
 
     newProfileRender = () => {
         if (this.state.newProfile) {
-            return <NewProfile />
+            return (
+            <NewProfile />
+            
+            )
         } else {
             return
         }
     }
 
     newProfileSwitch = () => {
-        let stateCopy = this.state;
-        stateCopy.newProfile = true;
 
-        this.setState(
-            stateCopy
-        )
+        this.setState({
+            newProfile : true
+        })
     }
 
 
@@ -38,9 +40,12 @@ class ProfilePage extends React.Component {
                             <div className="profilePage__label">NEW PROFILE</div>
                             <div className="profilePage__line profilePage__line--1"></div>
                         </div>
-                    </div>  
+                    </div>
+                    <img src={backgroundImage} className="profilePage__background" /> 
                 </div>
                 {this.newProfileRender()}
+                 
+                
             </>
         )
     }

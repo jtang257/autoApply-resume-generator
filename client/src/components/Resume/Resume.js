@@ -1,6 +1,7 @@
 import React from 'react';
 import './Resume.scss';
 import Axios from 'axios';
+import ReactToPdf from 'react-to-pdf';
 
 class Resume extends React.Component {
 
@@ -9,7 +10,14 @@ class Resume extends React.Component {
         jobPostingId : null,
         applicationId : this.props.match.params.id,
         profile : "",
-        jobPosting : ""
+        jobPosting : "",
+        ref : React.createRef(),
+        pdfOptions : {
+            unit : 'in',
+            orientation: 'p',
+            format: 'letter'
+
+        }
     }
 
     getProfileByProfileId = () => {
@@ -19,7 +27,7 @@ class Resume extends React.Component {
 
         Axios.get(url+path+profileId)
             .then((res) => {
-                let stateCopy = this.state;
+                let stateCopy = Object.assign({}, this.state);
                 stateCopy.profile = res.data.userProfile;
            
                 this.setState(
@@ -39,7 +47,7 @@ class Resume extends React.Component {
         
         Axios.get(url+path+applicationId)
             .then((res) => {
-                let stateCopy = this.state;
+                let stateCopy = Object.assign({}, this.state);
                 stateCopy.profileId = res.data.profileId;
                 stateCopy.jobPostingId = res.data.postingId;
 
@@ -126,7 +134,12 @@ class Resume extends React.Component {
         return(
             <>
                 <div className="resume__container">
-                    <div className="resume">
+                    <ReactToPdf targetRef={this.state.ref} x={-0.2} y={0} options={this.state.pdfOptions} filename="coverLetter.pdf">
+                        {({toPdf}) => (
+                            <button className="cl__pdf-generator" onClick={toPdf}>Generate PDF</button>
+                        )}
+                    </ReactToPdf>
+                    <div className="resume" ref={this.state.ref}>
                         <div className="resume__header">
                             <h1 className="resume__userName">{this.state.profile.firstName} {this.state.profile.middleName} {this.state.profile.lastName}</h1>
                             <div className="resume__contact-container">

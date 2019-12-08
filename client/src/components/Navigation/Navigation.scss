@@ -3,10 +3,13 @@
 .navigation__icon {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 30px;
     width: 75px;
     height: 75px;
     cursor: pointer;
+    background-color: rgba(8,129,24,0.9);
+    padding: 10px;
+    border-radius: 5px;
 }
 .nav-logo {
     margin: 0 0 50px 0;
@@ -22,12 +25,12 @@
 }
 
 .bm-menu-wrap {
-    opacity: 0.8;
-
+    width: 500px !important;
+    opacity: 1;
 }
 
 .bm-menu {
-    width: 100%;
+    width: 500px !important;
     padding: 50px 0 0 0;
     font-size: 32px;
     line-height: 80px;
@@ -35,6 +38,7 @@
 }
 
 .bm-morph-shape {
+    width: 500px !important;
     background: rgba(8,129,24,0.2);
 }
 
@@ -46,9 +50,10 @@
 }
 
 .bm-item-list {
-    width: 100%;
+    width: 500px;
 
 }
+
 
 .bm-item {
     width: 100%;
@@ -63,7 +68,8 @@
         background: rgba(235,237,238, 0.5);
     }
 
-
-
+    &:first-child {
+        border-top: none;
+    }
 
 }

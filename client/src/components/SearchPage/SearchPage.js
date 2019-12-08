@@ -15,7 +15,8 @@ class SearchPage extends React.Component {
     state = {
         postingData : null,
         searchToggle : false,
-        jobProfiles : null
+        jobProfiles : null,
+        loadingSpinnerSwitch : false
     }
 
     // this function takes the postingData stored in state and renders JobComponent for all the postings stored 
@@ -23,7 +24,7 @@ class SearchPage extends React.Component {
     postingGenerator = () => {
         let postings = this.state.postingData;
         let profiles = this.state.jobProfiles;
-        let postingsArray = []
+        let postingsArray = [];
         if (postings) {
             for (let i = 0; i < postings.length; i++) {
                 let randomImageIndex = this.imageRandomizer(postings.length);
@@ -51,10 +52,8 @@ class SearchPage extends React.Component {
         const searchTerm = event.target.search.value;
         Axios.get(url+path)
             .then((res) => {
-                let stateCopy = this.state;
-                stateCopy.postingData = this.searchQuery(searchTerm, res.data)
                 this.setState({
-                    stateCopy
+                    postingData : this.searchQuery(searchTerm, res.data)
                 })
             })
             .catch((err) => {
@@ -84,10 +83,8 @@ class SearchPage extends React.Component {
 
         Axios.get(url+path)
             .then((res) => {
-                let stateCopy = this.state;
-                stateCopy.jobProfiles = res.data;
                 this.setState({
-                    stateCopy
+                    jobProfiles : res.data
                 })
             })
             .catch((err) => {
@@ -101,11 +98,8 @@ class SearchPage extends React.Component {
 
     // onHover, this function setsState for search toggle to true
     searchBarSwitch = () => {
-        const stateCopy = this.state;
-        stateCopy.searchToggle = true;
-
         this.setState({
-            stateCopy
+            searchToggle : true
         })
     }
     
@@ -115,12 +109,15 @@ class SearchPage extends React.Component {
     searchBarRender = () => {
         if (this.state.searchToggle) {
             return (
-                <form className="search__form" onSubmit={(e) => {this.postingsQuery(e)}}>
-                    <input className="search__search-input" type= "text" name="search" id="search" placeholder="search for a job posting"/>
-                    <button className="search__submit-button" type="submit" id="search-btn" onMouseEnter={this.searchBarSwitch}>
-                        <img className="search__icon" src={SearchIcon} />
-                    </button> 
-                </form>
+                <div className="search__bar-container">
+                    <form className="search__form" onSubmit={(e) => {this.postingsQuery(e)}}>
+                        <input className="search__search-input" type= "text" name="search" id="search" placeholder="search for a job posting"/>
+                        <button className="search__submit-button" type="submit" id="search-btn" onMouseEnter={this.searchBarSwitch} onClick={this.loadingSpinnerSwitch}>
+                            <img className="search__icon" src={SearchIcon} />
+                        </button>
+                    </form>
+                    {this.loadingSpinnerRender()}
+                </div> 
             )} else {
                 return (
                     <form className="search__form" onSubmit={(e) => {this.postingsQuery(e)}}>
@@ -132,6 +129,38 @@ class SearchPage extends React.Component {
         }
     }
 
+    // Loading spinner render & toggle switch
+
+    loadingSpinnerRender = () => {
+        if (this.state.loadingSpinnerSwitch) {
+            return (
+                <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            )
+        }
+    }
+
+    loadingSpinnerSwitch = () => {
+        this.setState({
+            loadingSpinnerSwitch : true
+        })
+    }
+
+    componentDidUpdate() {
+        if (this.state.loadingSpinnerSwitch) {            
+            setTimeout(() => {this.setState({loadingSpinnerSwitch : false})}, 2000)
+        } else {
+            return
+        }
+    }
+
+    // Creating a ref to access the section div on scroll
+
+    myRef = React.createRef();
+
+    scrollToRef = () => {
+        setTimeout(window.scrollTo(0, this.myRef.current.offsetTop), 100)
+    }
+
     render() {
         return(
             <>
@@ -139,7 +168,7 @@ class SearchPage extends React.Component {
                     <div className="search__hero">
                         {this.searchBarRender()}
                     </div>
-                    <div className="search__section-content">
+                    <div className="search__section-content" ref={this.myRef}>
                         {this.postingGenerator()}
                     </div>
                 </div>

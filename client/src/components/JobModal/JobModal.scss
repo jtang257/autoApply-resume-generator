@@ -174,10 +174,22 @@
         border: none;
         font-weight: bold;
         font-size: 24px;
+        margin: 0 0 14px 0;
         cursor: pointer;
 
-        &:nth-child(2n) {
-            margin: 8px 0 8px 0;
+        &--deactivate {
+            background-color: transparent;
+            height: 80px;
+            border-radius: 10px;
+            border: solid 2px $secondary;
+            margin: 14px 0 0 0;
+            font-weight: bold;
+            font-size: 24px;
+            color: $secondary;
+        }
+
+        &--submitted {
+            background-color: $primary;
         }
 
         &--close {

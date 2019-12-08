@@ -13,24 +13,22 @@ class JobComponent extends React.Component {
         hover : false,
         modal : false,
         applicationId : "",
+        submitToggle : false
     }
 
     onHoverShow = () => {
-        let stateCopy = this.state;
-        stateCopy.hover = true;
-
-        this.setState(
-            stateCopy
-        )
+        this.setState({
+            hover : true   
+        })
     }
 
     onHoverFinish = () => {
         let stateCopy = this.state;
         stateCopy.hover = false;
 
-        this.setState(
-            stateCopy
-        )
+        this.setState({
+            hover : false
+        })
     }
 
     contentRender = () => {
@@ -68,23 +66,17 @@ class JobComponent extends React.Component {
     modalOpen = (e) => {
         e.preventDefault();
         
-        let stateCopy = this.state;
-        stateCopy.modal = true;
-
-        this.setState(
-            stateCopy
-        )
+        this.setState({
+            modal : true
+        })
     }
 
     modalClose = (e) => {
         e.preventDefault();
 
-        let stateCopy = this.state;
-        stateCopy.modal = false;
-
-        this.setState(
-            stateCopy
-        )
+        this.setState({
+            modal : false
+        })
     }
 
     urgentHiringConverter = () => {
@@ -120,12 +112,10 @@ class JobComponent extends React.Component {
     }
 
     setApplicationId = (id) => {
-        let stateCopy = this.state;
-        stateCopy.applicationId = id;
 
-        this.setState(
-            stateCopy
-        )
+        this.setState({
+            applicationId : id
+        })
     }
 
     applicationPost = (e) => {
@@ -145,6 +135,47 @@ class JobComponent extends React.Component {
         }).catch((err) => {
             console.log(err);
         })
+    }
+
+    changeSubmitToggle = () => {
+
+        this.setState({
+            submitToggle : true
+        })
+    }
+
+    renderGenerateButton = () => {
+        if (this.state.submitToggle) {
+            return (
+                <>
+                    <Link to={`/resume/${this.state.applicationId}`} target="_blank"><button type="button" className="modal__button">GENERATE RESUME</button> </Link>
+                    <Link to={`/coverLetter/${this.state.applicationId}`} target="_blank"><button type="button" className="modal__button">GENERATE COVER LETTER</button></Link>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <button type="button" className="modal__button--deactivate">GENERATE RESUME</button>
+                    <button type="button" className="modal__button--deactivate">GENERATE COVER LETTER</button>
+                </>
+            )
+        }
+    }
+
+    renderSaveButton = () => {
+        if (this.state.submitToggle) {
+            return (
+                <>
+                    <button type="submit" className="modal__button modal__button--submitted" onClick={this.changeSubmitToggle}>SAVE POSTING</button>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <button type="submit" className="modal__button" onClick={this.changeSubmitToggle}>SAVE POSTING</button>
+                </>
+            )
+        }
     }
 
 
@@ -206,9 +237,8 @@ class JobComponent extends React.Component {
                                 </div>
                                 <div className="modal__guide"></div>
                                 <div className="modal__generate-container">
-                                    <button type="submit" className="modal__button">SAVE POSTING</button>
-                                    <Link to={`/resume/${this.state.applicationId}`}><button type="button" className="modal__button">GENERATE RESUME</button> </Link>
-                                    <Link to={`/coverLetter/${this.state.applicationId}`}><button type="button" className="modal__button">GENERATE COVER LETTER</button></Link>
+                                    {this.renderSaveButton()}
+                                    {this.renderGenerateButton()}
                                 </div>
                                 <div className="modal__guide"></div>
                                 <div className="modal__cancel-container">
