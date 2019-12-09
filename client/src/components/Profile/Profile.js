@@ -34,7 +34,7 @@ class Profile extends React.Component {
                 return (
                     this.state.responsibilityInputCount.map((input) => {
                         let count = this.state.responsibilityInputCount[input-1]
-                        return <input className="profile__form-small-inputs" name={`userExperienceResp${count}`} id={`userExperienceResp${count}`} required></input>
+                        return <input className="profile__form-small-inputs" name={`userExperienceResp${count}`} id={`userExperienceResp${count}`} defaultValue="Main photographer in charge of capturing the friendly neighbourhood spiderman, in action, in the neighbourhood of Queens, NYC, resulting in a total picture count of 253" required></input>
                     })
                 )
             } else {
@@ -46,7 +46,7 @@ class Profile extends React.Component {
                 return (
                     this.state.responsibilityInputCount2.map((input) => {
                         let count = this.state.responsibilityInputCount2[input-1]
-                        return <input className="profile__form-small-inputs" name={`userExperienceRespT${count}`} id={`userExperienceRespT${count}`} required></input>
+                        return <input className="profile__form-small-inputs" name={`userExperienceRespT${count}`} id={`userExperienceRespT${count}`} defaultValue="Main aide to Iron Man, Captain America, Thor, The Incredible Hulk, Black Widow, Hawkeye, Wonder Woman, Vision, amongst other notable Superheroes" required></input>
                     })
                 )
             } else {
@@ -241,10 +241,6 @@ class Profile extends React.Component {
                             <button className="profile__form-button" type="submit" onClick={this.clearFormOnSubmit}>SUBMIT</button>
                             <button className="profile__form-button profile__form-button--reset" type="reset">CLEAR</button>
                         </div>
-                        {/* <div className="profile__form-nav">
-                            <button className="profile__form-nav-right" type="button"><img className="profile__form-button-icon" src={arrowIcon} onMouseOver={this.scrollOnClick()} /></button>
-                            <button className="profile__form-nav-left" type="button"><img className="profile__form-button-icon" src={arrowIcon} onMouseOver={this.scrollOnClick()} /></button>
-                        </div> */}
                     </div>
 
 
@@ -256,43 +252,39 @@ class Profile extends React.Component {
                         <ScrollContainer className="profile__form-main-container" horizontal={true} hideScrollbars={true} ignoreElements={"input, textarea, select, button"}>
                             <div className="profile__form-userDetails">
                                 <h2 className="profile__form-section-header">CONTACT</h2>
-                                <div className="profile__input-counter-container">
-                                    <label className="profile__input-counter-label">CHARACTERS: </label>
-                                     <p className="profile__input-counter">{this.state.characterCount.userDetails}</p>
-                                </div>
                                 <div className="profile__form-divider--row">
                                     <div className="profile__form-userDetails-container">
                                         <label className="profile__form-labels" htmlFor="firstName">PROFILE NAME</label>
-                                        <input className="profile__form-small-inputs"  id="profileName" name="profileName" defaultValue="Example Profile" required />
+                                        <input className="profile__form-small-inputs"  id="profileName" name="profileName" defaultValue="Peter Parker's Profile" required />
                                     </div>
                                     <div className="profile__form-userDetails-container">
                                         <label className="profile__form-labels" htmlFor="firstName">FIRST NAME</label>
-                                        <input className="profile__form-small-inputs" id="firstName" name="firstName" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
+                                        <input className="profile__form-small-inputs" id="firstName" name="firstName" defaultValue="Peter" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
                                     </div>
                                 </div>
                                 <div className="profile__form-divider--row">
                                     <div className="profile__form-userDetails-container">
                                         <label className="profile__form-labels" htmlFor="middleName">MIDDLE NAME</label>
-                                        <input className="profile__form-small-inputs" id="middleName" name="middleName" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}}/>
+                                        <input className="profile__form-small-inputs" id="middleName" name="middleName" defaultValue="Benjamin" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}}/>
                                     </div>
                                     <div className="profile__form-userDetails-container">
                                         <label className="profile__form-labels" htmlFor="lastName">LAST NAME</label>
-                                        <input className="profile__form-small-inputs" id="lastName" name="lastName" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
+                                        <input className="profile__form-small-inputs" id="lastName" name="lastName" defaultValue="Parker" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
                                     </div>
                                 </div>
                                 <div className="profile__form-divider--row">
                                     <div className="profile__form-userDetails-container">
                                         <label className="profile__form-labels" htmlFor="userPhone">PHONE</label>
-                                        <input className="profile__form-small-inputs" id="userPhone" name="userPhone" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
+                                        <input className="profile__form-small-inputs" id="userPhone" name="userPhone" defaultValue="(416)-111-1111" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
                                     </div>
                                     <div className="profile__form-userDetails-container">
                                         <label className="profile__form-labels" htmlFor="userEmail">EMAIL</label>
-                                        <input className="profile__form-small-inputs" id="userEmail" name="userEmail" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
+                                        <input className="profile__form-small-inputs" id="userEmail" name="userEmail" defaultValue="spiderman@marvel.org" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
                                     </div>
                                 </div>
                                 <div className="profile__form-userDetails-container">
                                     <label className="profile__form-labels" htmlFor="userAddress">ADDRESS</label>
-                                    <textarea className="profile__form-small-inputs profile__form-small-inputs--address" id="userAddress" name="userAddress" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
+                                    <textarea className="profile__form-small-inputs profile__form-small-inputs--address" id="userAddress" name="userAddress" defaultValue="20 Ingram Street, New York City" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "userDetails")}} required />
                                 </div>
 
                             </div>
@@ -301,34 +293,30 @@ class Profile extends React.Component {
 
                             <div className="profile__form-education">
                                 <h2 className="profile__form-section-header">EDUCATION</h2>
-                                <div className="profile__input-counter-container">
-                                    <label className="profile__input-counter-label">CHARACTERS: </label>
-                                    <p className="profile__input-counter">{this.state.characterCount.education}</p>
-                                </div>
                                 <div className="profile__form-divider--row">
                                     <div className="profile__form-divider--column">
                                         <label className="profile__form-labels" htmlFor="userEducationInstitution">INSTITUTION (1)</label>
-                                        <input className="profile__form-small-inputs" name="userEducationInstitution" id="userEducationInstitution" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} required />
-                                        <select className="profile__form-selections" name="userEducationStatus" id="userEducationStatus" required >
+                                        <input className="profile__form-small-inputs" name="userEducationInstitution" id="userEducationInstitution" defaultValue="Empire State University" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} required />
+                                        <select className="profile__form-selections" name="userEducationStatus" id="userEducationStatus" defaultValue="Obtained" required >
                                             <option value="">Select</option>
                                             <option value="In Progress">In progress</option>
                                             <option value="Obtained">Obtained</option>
                                         </select>
-                                        <textarea className="profile__form-small-inputs profile__form-small-inputs--address" name="userEducation" id="userEducation" required onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
+                                        <textarea className="profile__form-small-inputs profile__form-small-inputs--address" name="userEducation" id="userEducation" defaultValue="Bachelor of Sciences" required onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
                                         <label className="profile__form-labels" htmlFor="userEducationYr1">YEAR GRADUATED</label>
-                                        <input className="profile__form-small-inputs" name="userEducationYr1" id="userEducationYr1" required onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
+                                        <input className="profile__form-small-inputs" name="userEducationYr1" id="userEducationYr1" defaultValue="2010" required onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
                                     </div>
                                     <div className="profile__form-divider--column">
                                         <label className="profile__form-labels" htmlFor="userEducationInstitution2">INSTITUTION (2)</label>
-                                        <input className="profile__form-small-inputs" name="userEducationInstitution2" id="userEducationInstitution2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
-                                        <select className="profile__form-selections" name="userEducationStatus2" id="userEducationStatus2">
+                                        <input className="profile__form-small-inputs" name="userEducationInstitution2" id="userEducationInstitution2" defaultValue="Midtown High" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
+                                        <select className="profile__form-selections" name="userEducationStatus2" id="userEducationStatus2" defaultValue="Obtained"> 
                                             <option value="">Select</option>
                                             <option value="In Progress">In progress</option>
                                             <option value="Obtained">Obtained</option>
                                         </select>
-                                        <textarea className="profile__form-small-inputs profile__form-small-inputs--address" name="userEducation2" id="userEducation2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
+                                        <textarea className="profile__form-small-inputs profile__form-small-inputs--address" name="userEducation2" id="userEducation2" defaultValue="High School Diploma" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
                                         <label className="profile__form-labels" htmlFor="userEducationYr2">YEAR GRADUATED</label>
-                                        <input className="profile__form-small-inputs" name="userEducationYr2" id="userEducationYr2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
+                                        <input className="profile__form-small-inputs" name="userEducationYr2" id="userEducationYr2" defaultValue="2006" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "education")}} />
                                     </div>
                                 </div>
                             </div>
@@ -337,29 +325,25 @@ class Profile extends React.Component {
 
                             <div className="profile__form-experience">
                                 <h2 className="profile__form-section-header">EXPERIENCE</h2>
-                                <div className="profile__input-counter-container">
-                                    <label className="profile__input-counter-label">CHARACTERS: </label>
-                                    <p className="profile__input-counter">{this.state.characterCount.experience}</p>
-                                </div>
                                 <div className="profile__form-divider--row">
                                     <div className="profile__form-divider--column">
                                         <label className="profile__form-labels" htmlFor="userExperience">ROLE (1)</label>
-                                        <input className="profile__form-small-inputs" name="userExperience" id="userExperience" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} required />
+                                        <input className="profile__form-small-inputs" name="userExperience" id="userExperience" defaultValue="Staff Photographer" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} required />
                                         <label className="profile__form-labels" htmlFor="userExperienceOrg">ORGANIZATION</label>
-                                        <input className="profile__form-small-inputs" name="userExperienceOrg" id="userExperienceOrg" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} required />
+                                        <input className="profile__form-small-inputs" name="userExperienceOrg" id="userExperienceOrg" defaultValue="The Daily Bugle" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} required />
                                         <label className="profile__form-labels" htmlFor="userExperienceYear">YEAR(S)</label>
-                                        <input className="profile__form-small-inputs" name="userExperienceYear" id="userExperienceYear" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} required />
+                                        <input className="profile__form-small-inputs" name="userExperienceYear" id="userExperienceYear" defaultValue="2010-Current" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} required />
                                         <label className="profile__form-labels" htmlFor="userExperienceResp">KEY RESPONSIBILITIES</label>
                                         <button className="profile__form-add-button" type="button" onClick={() => {this.addInputClickHandler(1)}}>+</button>
                                         {this.addInputOnClick(1)}
                                     </div>
                                     <div className="profile__form-divider--column">
                                         <label className="profile__form-labels" htmlFor="userExperience2">ROLE (2)</label>
-                                        <input className="profile__form-small-inputs" name="userExperience2" id="userExperience2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} />
+                                        <input className="profile__form-small-inputs" name="userExperience2" id="userExperience2" defaultValue="Avenger" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} />
                                         <label className="profile__form-labels" htmlFor="userExperienceOrg2">ORGANIZATION</label>
-                                        <input className="profile__form-small-inputs" name="userExperienceOrg2" id="userExperienceOrg2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} />
+                                        <input className="profile__form-small-inputs" name="userExperienceOrg2" id="userExperienceOrg2" defaultValue="The Avengers" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} />
                                         <label className="profile__form-labels" htmlFor="userExperienceYear2">YEAR(S)</label>
-                                        <input className="profile__form-small-inputs" name="userExperienceYear2" id="userExperienceYear2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} />
+                                        <input className="profile__form-small-inputs" name="userExperienceYear2" id="userExperienceYear2" defaultValue="2010-Present" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "experience")}} />
                                         <label className="profile__form-labels" htmlFor="userExperienceResp2">KEY RESPONSIBILITIES</label>
                                         <button className="profile__form-add-button" type="button" onClick={() => {this.addInputClickHandler(2)}}>+</button>
                                         {this.addInputOnClick(2)}
@@ -371,32 +355,28 @@ class Profile extends React.Component {
 
                             <div className="profile__form-awards-certifications">
                                 <h2 className="profile__form-section-header">AWARDS &amp; CERTIFICATIONS</h2>
-                                <div className="profile__input-counter-container">
-                                    <label className="profile__input-counter-label">CHARACTERS: </label>
-                                    <p className="profile__input-counter">{this.state.characterCount.awards}</p>
-                                </div>
                                 <div className="profile__form-divider--row">
                                     <div className="profile__form-divider--column">
                                         <label className="profile__form-labels" htmlFor="userAwardCertType">AWARDS &amp; CERTIFICATIONS</label>
-                                        <input className="profile__form-small-inputs" name="userAwardCert" required />
-                                        <select className="profile__form-selections" name="userAwardCertType" id="userAwardCertType" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} required>
+                                        <input className="profile__form-small-inputs" name="userAwardCert" defaultValue="Avenger Awards - Rookie of the Year" required />
+                                        <select className="profile__form-selections" name="userAwardCertType" id="userAwardCertType" defaultValue="Award" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} required>
                                             <option value="">Select</option>
                                             <option value="Award">Award</option>
                                             <option value="Certification">Certification</option>
                                         </select>
                                         <label className="profile__form-labels" htmlFor="userAwardCertYr">YEAR</label>
-                                        <input className="profile__form-small-inputs" name="userAwardCertYr" id="userAwardCertYr" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} required />
+                                        <input className="profile__form-small-inputs" name="userAwardCertYr" id="userAwardCertYr" defaultValue="2010" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} required />
                                     </div>
                                     <div className="profile__form-divider--column">
                                         <label className="profile__form-labels" htmlFor="userAwardCertType2">AWARDS &amp; CERTIFICATIONS</label>
-                                        <input className="profile__form-small-inputs" name="userAwardCert2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} />
-                                        <select className="profile__form-selections" name="userAwardCertType2" id="userAwardCertType2">
+                                        <input className="profile__form-small-inputs" name="userAwardCert2" defaultValue="Winner - The Daily Bugle Photo Contest" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} />
+                                        <select className="profile__form-selections" name="userAwardCertType2" id="userAwardCertType2" defaultValue="Award">
                                             <option value="">Select</option>
                                             <option value="Award">Award</option>
                                             <option value="Certification">Certification</option>
                                         </select>
                                         <label className="profile__form-labels" htmlFor="userAwardCertYr2">YEAR</label>
-                                        <input className="profile__form-small-inputs" name="userAwardCertYr2" id="userAwardCertYr2" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} />
+                                        <input className="profile__form-small-inputs" name="userAwardCertYr2" id="userAwardCertYr2" defaultValue="2012" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "awards")}} />
                                     </div>
                                 </div>
                             </div>
@@ -406,28 +386,16 @@ class Profile extends React.Component {
                             <div className="profile__form-skills">
                                 <h2 className="profile__form-section-header profile__form-section-header--line-break">SKILLS &amp;</h2>
                                 <h2 className="profile__form-section-header profile__form-section-header--line-break">INTERESTS</h2>
-                                <div className="profile__input-counter-container">
-                                    <label className="profile__input-counter-label">CHARACTERS: </label>
-                                    <p className="profile__input-counter">{this.state.characterCount.skills}</p>
-                                </div>
                                 <label className="profile__form-labels" htmlFor="userSkills">SKILLS &amp; INTERESTS</label>
-                                <input className="profile__form-small-inputs" name="userSkills" id="userSkills" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "skills")}} required></input>
-                                <div className="profile__input-counter-container">
-                                    <label className="profile__input-counter-label">CHARACTERS: </label>
-                                     <p className="profile__input-counter">{this.state.characterCount.skills}</p>
-                                </div>
+                                <input className="profile__form-small-inputs" name="userSkills" id="userSkills" defaultValue="Web slinging, climbing, hanging upside down, saving the world, photography, witty remarks" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "skills")}} required></input>
                             </div> 
                             
                             {/* COVER LETTER SECTION */}
 
                             <div className="profile__form-coverLetter">
                                 <h2 className="profile__form-section-header">COVER LETTER</h2>
-                                <div className="profile__input-counter-container">
-                                    <label className="profile__input-counter-label">CHARACTERS: </label>
-                                    <p className="profile__input-counter">{this.state.characterCount.coverLetter}</p>
-                                </div>
                                 <p className="profile__form-description">Please only include a response to why you would make a great candidate. The rest of the cover letter will be auto-generated.</p>
-                                <textarea className="profile__form-coverLetterInput" name="userCoverLetter" id="userCoverLetter" onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "coverLetter")}} required />
+                                <textarea className="profile__form-coverLetterInput" name="userCoverLetter" id="userCoverLetter" defaultValue="I, Peter Parker, have proven to be an up and coming leader on The Avengers. Based on my past experiences, which include saving the world, amongst others, I feel I would be a tremendous fit at your organization." onKeyDown={(e) => {this.countCharactersOnKeyClick(e, "coverLetter")}} required />
                             </div>
                         </ScrollContainer>
                         

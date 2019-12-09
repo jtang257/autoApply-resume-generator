@@ -1,0 +1,46 @@
+[
+    { "userProfile":
+        {
+            "profileName" : "Retail Profile",
+            "firstName": "Jonathan",
+            "middleName": "Harris",
+            "lastName": "Tang",
+            "address": "111 Example St, Toronto ON",
+            "email": "j.h_tang525@hotmail.com",
+            "telephone": "6477676357",
+            "eduInstitution": "Ivey Business School",
+            "eduStatus": "Obtained",
+            "eduDegree": "Bachelor of Arts, HBA",
+            "eduYear": "2015",
+            "eduInstitution2": "Western University",
+            "eduStatus2": "Obtained",
+            "eduDegree2": "Bachelor of Arts",
+            "eduYear2": "2015",
+            "expRole": "Marketing Manager",
+            "expOrg": "TELUS",
+            "expYr": "2016-2019",
+            "expResp1":
+                "Led the Retail Channel Performance Optimization program as the product owner, resulting in a 30% increase in Store ROI",
+            "expResp2":
+                "Owned the Corporate Stores internal performance application, resulting in greater visibility into store performance",
+            "expResp3": "Launched a Scheduling Optimization pilot program, leading to a more traffic-oriented scheduling solution",
+            "expRole2": "Marketing Specialist",
+            "expOrg2": "TELUS",
+            "expYr2": "2015-2016",
+            "expRespT1":
+                "Managed the Corporate Stores Customer Feedback Management survey program, resulting in improved customer experience at retail stores",
+            "expRespT2": "Launched SMS and Email survey methodologies, resulting in a 3x improvement in customer response rates",
+            "expRespT3": "",
+            "awardCert": "Entrance scholarship",
+            "awardCertType": "Award",
+            "awardCertYr": "2011",
+            "awardCert2": "Dean's List",
+            "awardCertType2": "Award",
+            "awardCertYr2": "2013, 2015",
+            "userSkills": "Web Development, Mens fashion, Photography, Sports, Continuous Improvement, Reading",
+            "coverLetter": "This is a test cover letter." 
+        },
+        "profileId" : "20OjoGkQ"
+    }
+        
+]

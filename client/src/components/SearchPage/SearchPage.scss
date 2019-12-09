@@ -81,7 +81,8 @@
     .lds-spinner {
         color: official;
         display: inline-block;
-        position: relative;
+        position: absolute;
+        bottom: 100px;
         width: 80px;
         height: 80px;
       }

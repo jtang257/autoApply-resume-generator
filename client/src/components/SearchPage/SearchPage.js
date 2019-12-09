@@ -143,11 +143,17 @@ class SearchPage extends React.Component {
         this.setState({
             loadingSpinnerSwitch : true
         })
+        setTimeout(() => {
+            this.scrollToRef();
+        }, 2001)
+
     }
 
     componentDidUpdate() {
         if (this.state.loadingSpinnerSwitch) {            
-            setTimeout(() => {this.setState({loadingSpinnerSwitch : false})}, 2000)
+            setTimeout(() => {
+                this.setState({loadingSpinnerSwitch : false}) 
+            }, 2000)   
         } else {
             return
         }
@@ -158,10 +164,16 @@ class SearchPage extends React.Component {
     myRef = React.createRef();
 
     scrollToRef = () => {
-        setTimeout(window.scrollTo(0, this.myRef.current.offsetTop), 100)
+        console.log("test");
+        window.scrollTo({
+        left : 0, 
+        top : this.myRef.current.offsetTop,
+        behavior: 'smooth'})     
     }
 
     render() {
+        console.log("ran");
+        
         return(
             <>
                 <div className="search">

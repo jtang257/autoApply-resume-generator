@@ -3,6 +3,7 @@ const app = express();
 const router = express.Router();
 const profileData = require('../data/profiles.json');
 const shortId = require('shortid');
+const fs = require('fs');
 
 // FUNCTIONS TO RETRIEVE/MANIPULATE PROFILE DATA
 
@@ -16,7 +17,14 @@ const findProfile = (id) => {
 // Function to push submitted profile to profileData array. Each pushed profile has a unique profileId generated
 const postProfile = (profile) => {
     profile.profileId = shortId.generate();
-    profileData.push(profile);
+    profileData.push(profile);    
+
+    fs.writeFile('./data/profiles.json', JSON.stringify(profileData), (err) => {
+        if (err) {
+            console.log(err)
+        };
+        console.log('The file has been saved');
+    })
 }
 
 // ROUTER ENDPOINTS

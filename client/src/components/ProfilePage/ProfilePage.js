@@ -7,14 +7,13 @@ import backgroundImage from '../../assets/images/profile-background3.jpg';
 class ProfilePage extends React.Component {
 
     state = {
-        newProfile : false
+        newProfile : false,
     }
 
     newProfileRender = () => {
         if (this.state.newProfile) {
             return (
-            <NewProfile />
-            
+            <NewProfile />      
             )
         } else {
             return
@@ -22,14 +21,28 @@ class ProfilePage extends React.Component {
     }
 
     newProfileSwitch = () => {
-
         this.setState({
             newProfile : true
         })
     }
 
+    profileRef = React.createRef();
 
+    scrollToRef = () => {
+        console.log(this.profileRef)
+        window.scrollTo({
+        left : 0, 
+        top : this.profileRef.current.offsetTop,
+        behavior: 'smooth'})     
+    }
 
+    componentDidUpdate() {
+        if (this.state.newProfile) {
+            this.scrollToRef()
+        }
+    }
+
+    
     render() {
         return (
             <>
@@ -43,8 +56,9 @@ class ProfilePage extends React.Component {
                     </div>
                     <img src={backgroundImage} className="profilePage__background" /> 
                 </div>
-                {this.newProfileRender()}
-                 
+                <div ref={this.profileRef}>
+                    {this.newProfileRender()}
+                </div>
                 
             </>
         )
