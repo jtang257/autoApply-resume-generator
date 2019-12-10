@@ -132,7 +132,7 @@ class CoverLetter extends React.Component {
                                 <ul className="cl__main-list">
                                     <li className="cl__main-list-item">{this.state.profile.expResp1}</li>
                                     <li className="cl__main-list-item">{this.state.profile.expRespT1}</li>
-                                    <li className="cl__main-list-item">{this.state.profile.expResp2}</li>
+                                    <li className="cl__main-list-item">My {this.state.profile.eduDegree} at {this.state.profile.eduInstitution}</li>
                                 </ul>
                                 <p className="cl__main-paragraph">
                                     {this.state.profile.coverLetter}
